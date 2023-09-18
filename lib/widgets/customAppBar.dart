@@ -20,7 +20,7 @@ class customAppBar extends StatelessWidget {
         ],
         title: Text(
           name ?? "",
-          style: const TextStyle(color: grey),
+          style: const TextStyle(color: lightDarkBlack),
         ),
         centerTitle: true,
         backgroundColor: Colors.white,

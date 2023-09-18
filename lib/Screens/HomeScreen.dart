@@ -1,24 +1,23 @@
 import 'package:calculatorapp/Constants/colors.dart';
 import 'package:calculatorapp/widgets/customAppBar.dart';
 import 'package:flutter/material.dart';
+import 'package:calculatorapp/Constants/homeScreenConstants.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({
     super.key,
   });
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    const List colorofContainer = [lightDarkBlack, darkBlue, lightGreen];
-    const List content = ["How was your day?", "Current Transist: 3rd House"];
-    const List DailyTask = [
-      "Daily astromeditation",
-      "Daily sleep astromeditation",
-      "Daily mantra",
-    ];
-    const List newContainerColor = [lightGreen, pink];
     return Scaffold(
         appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(kToolbarHeight),
+          preferredSize: Size.fromHeight(50),
           child: customAppBar(name: "Home"),
         ),
         body: SingleChildScrollView(
@@ -58,15 +57,24 @@ class HomeScreen extends StatelessWidget {
                               end: Alignment.centerRight,
                             ),
                             image: const DecorationImage(
-                                scale: 2,
-                                image: AssetImage("assets/image/mask.png"))),
-                        height: 100,
+                                scale: 0.5,
+                                image: AssetImage("assets/images/Mask.png"))),
+                        height: 80,
                         width: 200,
-                        child: const Text(
-                          "Short news title will be here",
-                          style: TextStyle(color: Colors.white),
+                        padding: const EdgeInsets.all(10),
+                        child: Container(
+                          alignment: Alignment.center,
+                          margin: const EdgeInsets.only(right: 50),
+                          width: 100,
+                          child: const Text(
+                            "Short news title will be here",
+                            style: TextStyle(color: Colors.white),
+                          ),
                         ),
                       ),
+                    const SizedBox(
+                      width: 30,
+                    )
                   ],
                 ),
               ),
@@ -90,11 +98,9 @@ class HomeScreen extends StatelessWidget {
                         ),
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: white,
-                            image: const DecorationImage(
-                                scale: 2,
-                                image: AssetImage("assets/image/mask.png"))),
+                          borderRadius: BorderRadius.circular(20),
+                          color: white,
+                        ),
                         height: 150,
                         padding: const EdgeInsets.all(20),
                         width: 150,
@@ -104,7 +110,7 @@ class HomeScreen extends StatelessWidget {
                             Text(
                               DailyTask[i],
                               style: TextStyle(
-                                  color: colorofContainer[i], fontSize: 15),
+                                  color: DailyTaskColor[i], fontSize: 15),
                             ),
                             Text(
                               i.toString(),
@@ -122,32 +128,36 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              Container(
-                margin: const EdgeInsets.only(
-                  right: 20,
-                ),
-                alignment: Alignment.bottomCenter,
-                child: const Text.rich(TextSpan(
-                    text: "Your overall progress is ",
-                    style: TextStyle(color: lightBlack, fontSize: 18),
-                    children: <InlineSpan>[
-                      TextSpan(style: TextStyle(color: pink), text: "60%")
-                    ])),
-              ),
-              Container(
-                height: 20,
-                width: 300,
-                alignment: Alignment.centerLeft,
-                color: Colors.transparent,
-                child: Container(
-                  margin: const EdgeInsets.only(top: 10),
-                  height: 20,
-                  width: 200,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: pink,
+              Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(
+                      right: 100,
+                      top: 15,
+                      bottom: 10,
+                    ),
+                    child: const Text.rich(TextSpan(
+                        text: "Your overall progress is ",
+                        style: TextStyle(color: lightBlack, fontSize: 18),
+                        children: <InlineSpan>[
+                          TextSpan(style: TextStyle(color: pink), text: "60%")
+                        ])),
                   ),
-                ),
+                  Container(
+                    height: 18,
+                    width: 200,
+                    color: Colors.transparent,
+                    child: Container(
+                      margin: const EdgeInsets.only(top: 10),
+                      height: 20,
+                      width: 200,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: pink,
+                      ),
+                    ),
+                  ),
+                ],
               ),
               for (int m = 0; m < newContainerColor.length; m++)
                 InkWell(
@@ -167,7 +177,7 @@ class HomeScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Image.asset(
-                              "assets/images/Calendar.png",
+                              imageAssets[m],
                               color: white,
                             ),
                             Text(
