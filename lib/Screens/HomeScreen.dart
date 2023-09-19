@@ -1,8 +1,8 @@
-import 'package:calculatorapp/Constants/colors.dart';
+import 'package:calculatorapp/constants/colors.dart';
 import 'package:calculatorapp/widgets/CustomBottomNavBar .dart';
 import 'package:calculatorapp/widgets/customAppBar.dart';
 import 'package:flutter/material.dart';
-import 'package:calculatorapp/Constants/homeScreenConstants.dart';
+import 'package:calculatorapp/constants/homeScreenConstants.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({
@@ -23,12 +23,12 @@ class HomeScreen extends StatelessWidget {
             Container(
               alignment: Alignment.topLeft,
               margin: const EdgeInsets.only(
-                left: 15,
+                left: 20,
                 top: 20,
               ),
               child: const Text(
                 "News",
-                style: TextStyle(color: lightblue, fontSize: 24),
+                style: TextStyle(color: lightblue, fontSize: 30),
               ),
             ),
             SingleChildScrollView(
@@ -65,7 +65,10 @@ class HomeScreen extends StatelessWidget {
                         width: 100,
                         child: const Text(
                           "Short news title will be here",
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                          ),
                         ),
                       ),
                     ),
@@ -77,12 +80,12 @@ class HomeScreen extends StatelessWidget {
             ),
             Container(
               alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(left: 15, top: 20),
+              margin: const EdgeInsets.only(left: 20, top: 20),
               child: const Text(
                 "Daily Tasks :",
                 style: TextStyle(
                     color: lightblue,
-                    fontSize: 24,
+                    fontSize: 30,
                     fontWeight: FontWeight.w300),
               ),
             ),
@@ -109,7 +112,7 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           Text(
                             DailyTask[i],
-                            style: const TextStyle(color: white, fontSize: 15),
+                            style: const TextStyle(color: white, fontSize: 20),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -118,7 +121,7 @@ class HomeScreen extends StatelessWidget {
                                 number[i].toString(),
                                 style: const TextStyle(
                                   color: white,
-                                  fontSize: 24,
+                                  fontSize: 34,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -147,8 +150,7 @@ class HomeScreen extends StatelessWidget {
             Container(
               alignment: Alignment.center,
               margin: const EdgeInsets.only(
-                left: 20,
-                right: 60,
+                right: 70,
                 top: 10,
                 bottom: 10,
               ),
@@ -156,25 +158,23 @@ class HomeScreen extends StatelessWidget {
                   text: "Your overall progress is ",
                   style: TextStyle(
                     color: lightBlack,
-                    fontSize: 20,
+                    fontSize: 28,
                   ),
                   children: <InlineSpan>[
                     TextSpan(style: TextStyle(color: pink), text: "60%")
                   ])),
             ),
             Container(
-              height: 18,
-              width: 400,
+              height: 19,
+              width: 420,
               color: Colors.transparent,
               child: Container(
                 padding: const EdgeInsets.only(left: 60),
                 margin: const EdgeInsets.only(
-                  top: 10,
-                  left: 40,
+                  top: 12,
+                  left: 30,
                   right: 160,
                 ),
-                height: 20,
-                width: 200,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: pink,
@@ -184,9 +184,10 @@ class HomeScreen extends StatelessWidget {
             for (int m = 0; m < newContainerColor.length; m++)
               InkWell(
                 onTap: () {},
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  padding: const EdgeInsets.only(right: 35),
                   child: Container(
+                    alignment: Alignment.bottomLeft,
                     decoration: BoxDecoration(
                       color: newContainerColor[m],
                       borderRadius: BorderRadius.circular(10),
@@ -196,7 +197,7 @@ class HomeScreen extends StatelessWidget {
                     margin: const EdgeInsets.only(top: 20, bottom: 10),
                     padding: const EdgeInsets.all(20),
                     child: ListView(
-                      padding: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(15),
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -208,7 +209,7 @@ class HomeScreen extends StatelessWidget {
                             Text(
                               content[m],
                               style: const TextStyle(
-                                  color: Colors.white, fontSize: 15),
+                                  color: Colors.white, fontSize: 18),
                             ),
                             Image.asset(
                               "assets/images/arrow.png",
@@ -218,11 +219,11 @@ class HomeScreen extends StatelessWidget {
                         ),
                         SizedBox(
                           width: 900,
-                          height: 78,
+                          height: 58,
                           child: Container(
                             alignment: Alignment.bottomRight,
                             width: 1200,
-                            margin: const EdgeInsets.only(left: 10),
+                            margin: const EdgeInsets.only(right: 10),
                             child: Text(
                               endcontent[m],
                               style: const TextStyle(

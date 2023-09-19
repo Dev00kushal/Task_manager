@@ -1,6 +1,6 @@
 // ignore_for_file: camel_case_types
 
-import 'package:calculatorapp/Constants/colors.dart';
+import 'package:calculatorapp/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class customAppBar extends StatelessWidget {
@@ -20,7 +20,10 @@ class customAppBar extends StatelessWidget {
         ],
         title: Text(
           name ?? "",
-          style: const TextStyle(color: lightDarkBlack),
+          style: const TextStyle(
+            color: lightDarkBlack,
+            fontSize: 24,
+          ),
         ),
         centerTitle: true,
         backgroundColor: Colors.white,

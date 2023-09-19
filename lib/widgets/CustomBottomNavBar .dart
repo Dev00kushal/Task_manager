@@ -1,4 +1,5 @@
-import 'package:calculatorapp/Screens/Profile.dart';
+import 'package:calculatorapp/screens/HomeScreen.dart';
+import 'package:calculatorapp/screens/Profile.dart';
 import 'package:flutter/material.dart';
 
 class CustomBottomNavBar extends StatefulWidget {
@@ -13,6 +14,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
   Widget build(BuildContext context) {
     int latestIndex = 0;
     return BottomNavigationBar(
+      selectedItemColor: Colors.black,
       currentIndex: latestIndex,
       onTap: (index) {
         setState(() {
@@ -21,16 +23,19 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
       },
       items: [
         BottomNavigationBarItem(
-          label: "Home",
+          label: "",
           icon: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const HomeScreen()));
+            },
             icon: Image.asset(
               "assets/images/home.png",
             ),
           ),
         ),
         BottomNavigationBarItem(
-          label: "Profile",
+          label: "",
           icon: IconButton(
             onPressed: () {
               Navigator.push(context,
@@ -40,7 +45,6 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
               "assets/images/User.png",
             ),
           ),
-          backgroundColor: Colors.black,
         ),
       ],
     );
